@@ -15,7 +15,7 @@ var App = React.createClass({
     render: function () {
       return (
         <div>
-          <Navbar/>
+          <Navbar showSearchForm={true} showMultiSearch={true}/>
           <MultipleSearch/>
 
           <div className="row">

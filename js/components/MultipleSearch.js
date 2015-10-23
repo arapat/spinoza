@@ -6,7 +6,7 @@ var React = require('react');
 module.exports = React.createClass({
   render: function () {
     return (
-      <div className="modal fade" id="multisearch" tabindex="-1" role="dialog">
+      <div className="modal fade" id="multisearch" tabIndex="-1" role="dialog">
         <div className="modal-dialog" role="document">
           <div className="modal-content">
             <div className="modal-header">

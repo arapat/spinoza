@@ -16,21 +16,25 @@ module.exports = React.createClass({
           <a href="/" className="navbar-brand logo">Spinoza</a>
       	</div>
         <div className="collapse navbar-collapse" role="navigation">
-          <form className="navbar-form navbar-left">
-              <div className="input-group input-group-sm">
-                <input type="text" className="form-control" placeholder="Search" name="srch-term" id="srch-term"/>
-                <div className="input-group-btn">
-                  <button className="btn btn-default" type="submit"><i className="glyphicon glyphicon-search"></i></button>
+          {this.props.showSearchForm && (
+            <form className="navbar-form navbar-left">
+                <div className="input-group input-group-sm">
+                  <input type="text" className="form-control" placeholder="Search" name="hashtag" id="srch-hashtag"/>
+                  <div className="input-group-btn">
+                    <button className="btn btn-default" type="submit"><i className="glyphicon glyphicon-search"></i></button>
+                  </div>
                 </div>
-              </div>
-          </form>
-          <ul className="nav navbar-nav">
-            <li>
-              <a href="#multisearch" role="button" data-toggle="modal">
-                <i className="glyphicon glyphicon-plus"></i> Combined another hashtag
-              </a>
-            </li>
-          </ul>
+            </form>
+          )}
+          {this.props.showMultiSearch && (
+            <ul className="nav navbar-nav">
+              <li>
+                <a href="#multisearch" role="button" data-toggle="modal">
+                  <i className="glyphicon glyphicon-plus"></i> Combined another hashtag
+                </a>
+              </li>
+            </ul>
+          )}
           <ul className="nav navbar-nav pull-right">
             <li>
               <a href="#" role="button">About</a>
