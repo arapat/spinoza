@@ -51,7 +51,7 @@ var UndefinedHashtag = React.createClass({
           <p>Please help us to describe {this.props.hashtag}.</p>
         </div>
         <div className="input-group">
-          <input type="hidden" name="hashtag" value="{this.props.hashtag}"/>
+          <input type="hidden" name="hashtag" value={this.props.hashtag}/>
           <input type="text" name="def" className="form-control"
                  placeholder={"Describe #" + this.props.hashtag}
                  onKeyUp={this.onKeyUp}/>

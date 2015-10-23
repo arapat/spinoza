@@ -5,6 +5,7 @@ var EventEmitter = require('events').EventEmitter;
 var assign = require('object-assign');
 
 var ActionTypes = require('../constants/Constants.js').ActionTypes;
+var ErrorTypes = require('../constants/Constants.js').ErrorTypes;
 var CHANGE_EVENT = 'change';
 
 var _errors = [];
@@ -40,8 +41,9 @@ var ErrorStore = assign({}, EventEmitter.prototype, {
 ErrorStore.dispatchToken = AppDispatcher.register(function(action) {
   switch(action.type) {
     case ActionTypes.SUBMIT_HASHTAG_FAILED:
-      action.error.id = _errors.length + 1;
-      _errors.push(action.error);
+      _errors.push({
+        type: ErrorTypes.SUBMIT_HASHTAG_ERROR
+      });
       ErrorStore.emitChange();
       break;
 
