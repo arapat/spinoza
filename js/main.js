@@ -8,6 +8,7 @@ var Definition = require('./components/Definition.js');
 var Stats = require('./components/Stats.js');
 var ClusterHashtag = require('./components/ClusterHashtag.js');
 var HashtagTweets = require('./components/HashtagTweets.js');
+var HashtagUsers = require('./components/HashtagUsers.js');
 
 var App = React.createClass({
     render: function () {
@@ -35,6 +36,7 @@ var App = React.createClass({
               <HashtagTweets/>
             </div>
             <div className="col-md-4">
+              <HashtagUsers/>
             </div>
           </div>
         </div>
