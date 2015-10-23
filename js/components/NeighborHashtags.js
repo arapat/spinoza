@@ -6,9 +6,9 @@ var React = require('react');
 module.exports = React.createClass({
   render: function () {
     return (
-      <div className="panel panel-primary">
+      <div className="panel panel-info">
         <div className="panel-heading">
-          <h3 className="panel-title">Stats</h3>
+          <h3 className="panel-title">Neighbor Hashtags</h3>
         </div>
         <div className="panel-body">
           Not available yet.

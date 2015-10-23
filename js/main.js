@@ -6,6 +6,7 @@ var ReactDOM = require('react-dom');
 var Navbar = require('./components/Navbar.js');
 var Definition = require('./components/Definition.js');
 var Stats = require('./components/Stats.js');
+var ClusterHashtag = require('./components/ClusterHashtag.js');
 
 var App = React.createClass({
     render: function () {
@@ -19,6 +20,11 @@ var App = React.createClass({
               </div>
               <div className="col-md-4">
                 <Stats/>
+              </div>
+            </div>
+            <div className="row">
+              <div className="col-md-12">
+                <ClusterHashtag/>
               </div>
             </div>
           </div>

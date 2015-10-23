@@ -75,7 +75,7 @@ var TagDescribe = React.createClass({
                       : (<UndefinedHashtag hashtag={this.props.hashtag}/>);
     }
     return (
-      <div className="panel panel-info">
+      <div className="panel panel-primary">
         <div className="panel-heading">
           <h3 className="panel-title">Definition</h3>
         </div>
