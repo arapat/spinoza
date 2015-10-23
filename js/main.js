@@ -11,21 +11,19 @@ var ClusterHashtag = require('./components/ClusterHashtag.js');
 var App = React.createClass({
     render: function () {
       return (
-        <div>
+        <div className="container">
           <Navbar/>
-          <div className="container-fluid">
-            <div className="row">
-              <div className="col-md-8">
-                <Definition/>
-              </div>
-              <div className="col-md-4">
-                <Stats/>
-              </div>
+          <div className="row">
+            <div className="col-md-8">
+              <Definition/>
             </div>
-            <div className="row">
-              <div className="col-md-12">
-                <ClusterHashtag/>
-              </div>
+            <div className="col-md-4">
+              <Stats/>
+            </div>
+          </div>
+          <div className="row">
+            <div className="col-md-12">
+              <ClusterHashtag/>
             </div>
           </div>
         </div>
