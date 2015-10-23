@@ -1,0 +1,21 @@
+
+module.exports = {
+  'URLs': {
+  },
+  'ActionTypes': {
+    QUERY_HASHTAG_DEF: 'QUERY_HASHTAG_DEF',
+    SUBMIT_HASHTAG_DEF: 'SUBMIT_HASHTAG_DEF',
+    QUERY_HASHTAG_SUCCESS: 'QUERY_HASHTAG_SUCCESS',
+    QUERY_HASHTAG_FAILED: 'QUERY_HASHTAG_FAILED',
+    SUBMIT_HASHTAG_SUCCESS: 'SUBMIT_HASHTAG_SUCCESS',
+    SUBMIT_HASHTAG_FAILED: 'SUBMIT_HASHTAG_FAILED'
+  },
+  'RegExp': {
+  },
+  'ErrorTypes': {
+    SUBMIT_HASHTAG_ERROR: 'SUBMIT_HASHTAG_ERROR'
+  },
+  'ErrorMessages': {
+    SUBMIT_HASHTAG_ERROR: 'Server error: please try again later.'
+  }
+};
