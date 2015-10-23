@@ -26,7 +26,14 @@ module.exports = React.createClass({
           </form>
           <ul className="nav navbar-nav">
             <li>
-              <a href="#postModal" role="button" data-toggle="modal"><i className="glyphicon glyphicon-plus"></i> Combined another hashtag</a>
+              <a href="#multisearch" role="button" data-toggle="modal">
+                <i className="glyphicon glyphicon-plus"></i> Combined another hashtag
+              </a>
+            </li>
+          </ul>
+          <ul className="nav navbar-nav pull-right">
+            <li>
+              <a href="#" role="button">About</a>
             </li>
           </ul>
       	</div>

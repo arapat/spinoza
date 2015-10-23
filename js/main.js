@@ -4,6 +4,7 @@ var React = require('react');
 var ReactDOM = require('react-dom');
 
 var Navbar = require('./components/Navbar.js');
+var MultipleSearch = require('./components/MultipleSearch.js');
 var Definition = require('./components/Definition.js');
 var Stats = require('./components/Stats.js');
 var ClusterHashtag = require('./components/ClusterHashtag.js');
@@ -15,6 +16,7 @@ var App = React.createClass({
       return (
         <div>
           <Navbar/>
+          <MultipleSearch/>
 
           <div className="row">
             <div className="col-md-8">
