@@ -3,7 +3,7 @@
 
 var React = require('react');
 
-var HashtagDefActionCreator = require('../actions/HashtagDefActionCreator.js');
+var HashtagDefActionCreators = require('../actions/HashtagDefActionCreators.js');
 var HashtagDefStore = require('../stores/HashtagDefStore.js');
 var ErrorStore = require('../stores/ErrorStore.js');
 
@@ -18,7 +18,7 @@ function getHashtagState() {
 function submitHashtagDef() {
   var hashtag = $('input[name="hashtag"]').val().toLowerCase();
   var def = $('input[name="def"]').val();
-  HashtagDefActionCreator.submitDef({
+  HashtagDefActionCreators.submitDef({
     hashtag: hashtag,
     def: def
   });
