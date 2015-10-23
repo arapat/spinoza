@@ -5,7 +5,7 @@ var React = require('react');
 module.exports = React.createClass({
   render: function () {
     return (
-      <div className="navbar navbar-default navbar-static-top">
+      <div className="navbar navbar-custom navbar-static-top">
         <div className="navbar-header">
           <button className="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
             <span className="sr-only">Toggle</span>

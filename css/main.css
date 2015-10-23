@@ -1,4 +1,9 @@
 
+.navbar-custom {
+  background-color: white;
+  border-bottom: 1px #cccccc solid;
+}
+
 #srch-term {
   max-width: 360px;
 }

@@ -13,7 +13,7 @@ var HashtagUsers = require('./components/HashtagUsers.js');
 var App = React.createClass({
     render: function () {
       return (
-        <div className="container">
+        <div>
           <Navbar/>
 
           <div className="row">
