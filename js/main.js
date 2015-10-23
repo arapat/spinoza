@@ -7,12 +7,14 @@ var Navbar = require('./components/Navbar.js');
 var Definition = require('./components/Definition.js');
 var Stats = require('./components/Stats.js');
 var ClusterHashtag = require('./components/ClusterHashtag.js');
+var HashtagTweets = require('./components/HashtagTweets.js');
 
 var App = React.createClass({
     render: function () {
       return (
         <div className="container">
           <Navbar/>
+
           <div className="row">
             <div className="col-md-8">
               <Definition/>
@@ -21,9 +23,18 @@ var App = React.createClass({
               <Stats/>
             </div>
           </div>
+
           <div className="row">
             <div className="col-md-12">
               <ClusterHashtag/>
+            </div>
+          </div>
+
+          <div className="row">
+            <div className="col-md-8">
+              <HashtagTweets/>
+            </div>
+            <div className="col-md-4">
             </div>
           </div>
         </div>

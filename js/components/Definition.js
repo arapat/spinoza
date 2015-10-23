@@ -1,6 +1,11 @@
 
 'use strict'
 
+/*
+TODO:
+* display error messages
+*/
+
 var React = require('react');
 
 var HashtagDefActionCreators = require('../actions/HashtagDefActionCreators.js');
@@ -46,7 +51,7 @@ var UndefinedHashtag = React.createClass({
   render: function () {
     return (
       <div className="tag-defination">
-        <div className="alert alert-warning" role="alert">
+        <div className="alert alert-info" role="alert">
           <p>This hashtag is not defined yet.</p>
           <p>Please help us to describe {this.props.hashtag}.</p>
         </div>

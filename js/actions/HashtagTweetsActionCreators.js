@@ -15,7 +15,7 @@ function search (data, onSuccess, onError) {
     dataType: "json",
     type: 'GET',
     data: {
-      result_type: data.result_type,
+      result_type: data.resultType,
       count: data.count,
       max_id: data.max_id
     },
@@ -28,6 +28,14 @@ module.exports = {
   query: function (data) {
     AppDispatcher.dispatch({
       type: ActionTypes.QUERY_HASHTAG_TWEETS,
+      data: data
+    });
+    search(data, this.querySuccess, this.queryFailed);
+  },
+
+  queryMore: function (data) {
+    AppDispatcher.dispatch({
+      type: ActionTypes.QUERY_MORE_HASHTAG_TWEETS,
       data: data
     });
     search(data, this.querySuccess, this.queryFailed);
