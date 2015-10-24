@@ -13,7 +13,7 @@ function search (hashtag, onSuccess, onError) {
   }
   $.ajax({
     url: apiURL + "/hashtag/def/q/" + hashtag,
-    dataType: "jsonp",
+    dataType: "json",
     type: 'GET',
     success: onSuccess,
     error: onError
@@ -23,7 +23,7 @@ function search (hashtag, onSuccess, onError) {
 function submit (hashtag, definition, onSuccess, onError) {
   $.ajax({
     url: apiURL + "/hashtag/def/a/",
-    dataType: "jsonp",
+    dataType: "json",
     type: 'POST',
     data: {
       'hashtag': hashtag,

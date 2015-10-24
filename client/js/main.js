@@ -12,6 +12,7 @@ var router = {
   "hashtag": PageHashtagDetails,
   "about": PageAbout
 };
+var pageDefault = PageHashtagCloud;
 
 function parseURL () {
   var hash = window.location.hash.slice(1);
@@ -28,6 +29,9 @@ var App = React.createClass({
     render: function () {
       var vars = parseURL();
       var Page = router[vars[0]];
+      if (Page == undefined) {
+        Page = pageDefault;
+      }
       return <Page data={vars[1]}/>;
     }
 });

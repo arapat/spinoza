@@ -59,7 +59,7 @@ var UndefinedHashtag = React.createClass({
       <div className="tag-defination">
         <div className="alert alert-info" role="alert">
           <p>This hashtag is not defined yet.</p>
-          <p>Please help us to describe {this.props.hashtag}.</p>
+          <p>Please help us to describe #{this.props.hashtag}.</p>
         </div>
         <div className="input-group">
           <input type="hidden" name="def-hashtag" value={this.props.hashtag}/>
@@ -82,7 +82,7 @@ var TagDescribe = React.createClass({
   render: function () {
     var Content = <p>Loading...</p>;
     if (!this.props.waitingQuery) {
-      Content = this.props.def ? (<ExistentQuery def={this.props.def}/>)
+      Content = this.props.def ? (<ExistentHashtag def={this.props.def}/>)
                       : (<UndefinedHashtag hashtag={this.props.hashtag}/>);
     }
     return (
