@@ -3,13 +3,19 @@
 var React = require('react');
 
 module.exports = React.createClass({
-  onClick: function () {
+  search: function () {
     var hashtag = $('input[name="srch-hashtag"]').val().toLowerCase();
     if (hashtag[0] == '#') {
       hashtag = hashtag.slice(1);
     }
     var url = location.href;
     location.href = "#hashtag=" + hashtag;
+  },
+
+  onKeyUp: function (event) {
+    if (event.keyCode == 13) {
+      this.search();
+    }
   },
 
   render: function () {
@@ -28,9 +34,10 @@ module.exports = React.createClass({
           {this.props.showSearchForm && (
             <div className="navbar-form navbar-left">
                 <div className="input-group input-group-sm">
-                  <input type="text" className="form-control" placeholder="Search" name="srch-hashtag" id="srch-hashtag"/>
+                  <input type="text" className="form-control" placeholder="Search"
+                    name="srch-hashtag" id="srch-hashtag" onKeyUp={this.onKeyUp}/>
                   <div className="input-group-btn">
-                    <button className="btn btn-default" type="submit" onClick={this.onClick}>
+                    <button className="btn btn-default" type="submit" onClick={this.search}>
                       <i className="glyphicon glyphicon-search"></i>
                     </button>
                   </div>
