@@ -55,7 +55,7 @@ HashtagDefStore.dispatchToken = AppDispatcher.register(function(action) {
 
     case ActionTypes.QUERY_HASHTAG_SUCCESS:
       _hashtag = action.data.hashtag;
-      _definition = action.data.def;
+      _definition = action.data.describe;
       _waitingQuery = false;
       HashtagDefStore.emitChange();
       break;

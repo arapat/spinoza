@@ -1,6 +1,7 @@
 
 module.exports = {
   'URLs': {
+    'API_URL': 'http://jalafate.ucsd.edu:3000'
   },
   'ActionTypes': {
     QUERY_HASHTAG_DEF: 'QUERY_HASHTAG_DEF',

@@ -2,15 +2,18 @@
 
 var AppDispatcher = require('../dispatcher/AppDispatcher.js');
 
-var ActionTypes = require('../constants/Constants.js').ActionTypes;
+var Constants = require('../constants/Constants.js');
+var ActionTypes = Constants.ActionTypes;
+
+var apiURL = Constants.URLs.API_URL;
 
 function search (hashtag, onSuccess, onError) {
   if (hashtag[0] == '#') {
     hashtag = hashtag.slice(1);
   }
   $.ajax({
-    url: "hashtag/def/q/" + hashtag,
-    dataType: "json",
+    url: apiURL + "/hashtag/def/q/" + hashtag,
+    dataType: "jsonp",
     type: 'GET',
     success: onSuccess,
     error: onError
@@ -19,12 +22,12 @@ function search (hashtag, onSuccess, onError) {
 
 function submit (hashtag, definition, onSuccess, onError) {
   $.ajax({
-    url: "hashtag/def/a/",
-    dataType: "json",
+    url: apiURL + "/hashtag/def/a/",
+    dataType: "jsonp",
     type: 'POST',
     data: {
       'hashtag': hashtag,
-      'definition': definition
+      'describe': definition
     },
     success: onSuccess,
     error: onError

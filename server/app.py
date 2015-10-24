@@ -14,8 +14,13 @@ client.ping().raise_for_status()
 
 app = Flask(__name__)
 
+def getPrettyJSON(obj):
+  return json.dumps(obj, sort_keys=True,
+    indent=4, separators=(',', ': '))
+
 def saveDefHashtag(hashtag, defn):
     response = client.put(tableDef, hashtag, {
+        'hashtag': hashtag,
         'describe': defn,
         'type': 'hashtag'
     })
@@ -27,10 +32,10 @@ def getDef(hashtag):
     try:
         obj.raise_for_status()
     except HTTPError:
-        return json.dumps({'status': 1})
+        return getPrettyJSON({'status': 1})
     response = dict(obj)
     response['status'] = 0
-    return json.dumps(response)
+    return getPrettyJSON(response)
 
 @app.route("/hashtag/def/q/<hashtag>/")
 def queryHashtagDef(hashtag):
@@ -41,7 +46,7 @@ def addHashtagDef():
     hashtag = request.form['hashtag']
     describe = request.form['describe']
     saveDefHashtag(hashtag, describe)
-    return json.dumps({'status': 'success'})
+    return getPrettyJSON({'status': 'success'})
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=int(os.environ.get("PORT",3000)))
