@@ -3,6 +3,15 @@
 var React = require('react');
 
 module.exports = React.createClass({
+  onClick: function () {
+    var hashtag = $('input[name="srch-hashtag"]').val().toLowerCase();
+    if (hashtag[0] == '#') {
+      hashtag = hashtag.slice(1);
+    }
+    var url = location.href;
+    location.href = "#hashtag=" + hashtag;
+  },
+
   render: function () {
     return (
       <div className="navbar navbar-custom navbar-static-top">
@@ -13,18 +22,20 @@ module.exports = React.createClass({
       			<span className="icon-bar"></span>
       			<span className="icon-bar"></span>
           </button>
-          <a href="/" className="navbar-brand logo">Spinoza</a>
+          <a href="#" className="navbar-brand logo">Spinoza</a>
       	</div>
         <div className="collapse navbar-collapse" role="navigation">
           {this.props.showSearchForm && (
-            <form className="navbar-form navbar-left">
+            <div className="navbar-form navbar-left">
                 <div className="input-group input-group-sm">
-                  <input type="text" className="form-control" placeholder="Search" name="hashtag" id="srch-hashtag"/>
+                  <input type="text" className="form-control" placeholder="Search" name="srch-hashtag" id="srch-hashtag"/>
                   <div className="input-group-btn">
-                    <button className="btn btn-default" type="submit"><i className="glyphicon glyphicon-search"></i></button>
+                    <button className="btn btn-default" type="submit" onClick={this.onClick}>
+                      <i className="glyphicon glyphicon-search"></i>
+                    </button>
                   </div>
                 </div>
-            </form>
+            </div>
           )}
           {this.props.showMultiSearch && (
             <ul className="nav navbar-nav">
@@ -37,7 +48,7 @@ module.exports = React.createClass({
           )}
           <ul className="nav navbar-nav pull-right">
             <li>
-              <a href="#" role="button">About</a>
+              <a href="#about" role="button">About</a>
             </li>
           </ul>
       	</div>

@@ -3,47 +3,37 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
 
-var Navbar = require('./components/Navbar.js');
-var MultipleSearch = require('./components/MultipleSearch.js');
-var Definition = require('./components/Definition.js');
-var Stats = require('./components/Stats.js');
-var ClusterHashtag = require('./components/ClusterHashtag.js');
-var HashtagTweets = require('./components/HashtagTweets.js');
-var HashtagUsers = require('./components/HashtagUsers.js');
+var PageHashtagCloud = require('./components/PageHashtagCloud.js');
+var PageHashtagDetails = require('./components/PageHashtagDetails.js');
+var PageAbout = require('./components/PageAbout.js');
+
+var router = {
+  "": PageHashtagCloud,
+  "hashtag": PageHashtagDetails,
+  "about": PageAbout
+};
+
+function parseURL () {
+  var hash = window.location.hash.slice(1);
+  var vars = hash.split("=", 2);
+  var page = vars[0] == undefined ? "" : decodeURIComponent(vars[0]);
+  var data = vars[1] == undefined ? "" : decodeURIComponent(vars[1]);
+  if (data[0] == '#') {
+    data = data.slice(1);
+  }
+  return [page, data];
+}
 
 var App = React.createClass({
     render: function () {
-      return (
-        <div>
-          <Navbar showSearchForm={true} showMultiSearch={true}/>
-          <MultipleSearch/>
-
-          <div className="row">
-            <div className="col-md-8">
-              <Definition/>
-            </div>
-            <div className="col-md-4">
-              <Stats/>
-            </div>
-          </div>
-
-          <div className="row">
-            <div className="col-md-12">
-              <ClusterHashtag/>
-            </div>
-          </div>
-
-          <div className="row">
-            <div className="col-md-8">
-              <HashtagTweets/>
-            </div>
-            <div className="col-md-4">
-              <HashtagUsers/>
-            </div>
-          </div>
-        </div>
-      );
+      var vars = parseURL();
+      var Page = router[vars[0]];
+      return <Page data={vars[1]}/>;
     }
 });
 
-ReactDOM.render(<App/>, document.getElementById('spinoza'))
+function render() {
+  ReactDOM.render(<App/>, document.getElementById('spinoza'))
+}
+window.onhashchange = render;
+render();

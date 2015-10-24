@@ -21,7 +21,7 @@ function getHashtagState() {
 }
 
 function submitHashtagDef() {
-  var hashtag = $('input[name="hashtag"]').val().toLowerCase();
+  var hashtag = $('input[name="def-hashtag"]').val().toLowerCase();
   var def = $('input[name="def"]').val();
   HashtagDefActionCreators.submitDef({
     hashtag: hashtag,
@@ -56,7 +56,7 @@ var UndefinedHashtag = React.createClass({
           <p>Please help us to describe {this.props.hashtag}.</p>
         </div>
         <div className="input-group">
-          <input type="hidden" name="hashtag" value={this.props.hashtag}/>
+          <input type="hidden" name="def-hashtag" value={this.props.hashtag}/>
           <input type="text" name="def" className="form-control"
                  placeholder={"Describe #" + this.props.hashtag}
                  onKeyUp={this.onKeyUp}/>
