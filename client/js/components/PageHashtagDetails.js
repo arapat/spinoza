@@ -20,7 +20,7 @@ module.exports = React.createClass({
 
         <div className="row">
           <div className="col-md-8">
-            <Definition hashtag={this.props.data}/>
+            <Definition/>
           </div>
           <div className="col-md-4">
             <Stats/>

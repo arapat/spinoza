@@ -20,12 +20,6 @@ function getHashtagState() {
   };
 }
 
-function queryHashtagDef(hashtag) {
-  HashtagDefActionCreators.queryDef({
-    hashtag: hashtag,
-  });
-}
-
 function submitHashtagDef() {
   var hashtag = $('input[name="def-hashtag"]').val().toLowerCase();
   var def = $('input[name="def"]').val();
@@ -106,7 +100,6 @@ module.exports = React.createClass({
   componentDidMount: function() {
     HashtagDefStore.addChangeListener(this._onChange);
     ErrorStore.addChangeListener(this._onChange);
-    queryHashtagDef(this.props.hashtag);
   },
 
   componentWillUnmount: function() {

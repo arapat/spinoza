@@ -37,6 +37,7 @@ def getDef(hashtag):
     response['status'] = 0
     return getPrettyJSON(response)
 
+@app.route("/hashtag/def/q/<hashtag>")
 @app.route("/hashtag/def/q/<hashtag>/")
 def queryHashtagDef(hashtag):
     return getDef(hashtag)
