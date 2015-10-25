@@ -5,7 +5,7 @@ var React = require('react');
 
 var Navbar = require('../components/Navbar.js');
 var MultipleSearch = require('../components/MultipleSearch.js');
-var Definition = require('../components/Definition.js');
+var HashtagDefinition = require('../components/HashtagDefinition.js');
 var Stats = require('../components/Stats.js');
 var ClusterHashtag = require('../components/ClusterHashtag.js');
 var HashtagTweets = require('../components/HashtagTweets.js');
@@ -20,7 +20,7 @@ module.exports = React.createClass({
 
         <div className="row">
           <div className="col-md-8">
-            <Definition/>
+            <HashtagDefinition/>
           </div>
           <div className="col-md-4">
             <Stats/>
