@@ -52,7 +52,17 @@ def addHashtagDef():
 @app.route("/tweets/hashtag/<hashtag>/<resultType>/<count>")
 @app.route("/tweets/hashtag/<hashtag>/<resultType>/<count>/<maxId>")
 def searchTweetsByHashtag(hashtag, resultType, count, maxId = None):
-  result = twitter.search(hashtag, resultType, count, maxId)
+  result = twitter.searchByHashtag(hashtag, resultType, count, maxId)
+  return getPrettyJSON(result['statuses'])
+
+@app.route("/tweets/multiple-hashtags")
+def searchTweetsByTwoHashtags():
+  hashtags = request.args.get('hashtags').split(',')
+  resultType = request.args.get('result-type')
+  count = request.args.get('count')
+  maxId = request.args.get('max-id')
+  result = twitter.searchByMultipleHashtags(hashtags, resultType, count, maxId)
+  print(result)
   return getPrettyJSON(result['statuses'])
 
 @app.after_request
