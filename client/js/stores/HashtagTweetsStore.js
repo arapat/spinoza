@@ -64,8 +64,9 @@ HashtagTweetsStore.dispatchToken = AppDispatcher.register(function(action) {
 
     case ActionTypes.QUERY_HASHTAG_TWEETS_SUCCESS:
       _tweets = _tweets.concat(action.data);
+      console.log(action.data);
       var tweetsId = _tweets.map(function (tweet) {
-        return tweet.id;
+        return tweet.id_str;
       });
       _minId = _minId == undefined ? Math.min(...tweetsId) : Math.min(...tweetsId, _minId);
       _maxId = _maxId == undefined ? Math.max(...tweetsId) : Math.max(...tweetsId, _maxId);

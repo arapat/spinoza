@@ -38,7 +38,7 @@ function formatTweet(tweet) {
   */
   var twitterURL = "https://twitter.com/"
   var userURL = twitterURL + tweet.user.screen_name;
-  var tweetURL = twitterURL + tweet.user.screen_name + "/status/" + tweet.id;
+  var tweetURL = twitterURL + tweet.user.screen_name + "/status/" + tweet.id_str;
 
   var date = new Date(tweet.created_at);
   var datetime = date.toLocaleDateString() + ' ' + date.toLocaleTimeString();
@@ -118,7 +118,7 @@ module.exports = React.createClass({
       undefined : this.createOnClickFunc(Parameters.RESULT_TYPE_RECENT);
     var Tweets = this.state.tweets.map(function (tweet) {
       return (
-        <li key={tweet.id} className="list-group-item tweet">
+        <li key={tweet.id_str} className="list-group-item tweet">
           {formatTweet(tweet)}
         </li>
       );
