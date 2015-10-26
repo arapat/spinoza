@@ -64,7 +64,6 @@ HashtagTweetsStore.dispatchToken = AppDispatcher.register(function(action) {
 
     case ActionTypes.QUERY_HASHTAG_TWEETS_SUCCESS:
       _tweets = _tweets.concat(action.data);
-      console.log(action.data);
       var tweetsId = _tweets.map(function (tweet) {
         return tweet.id_str;
       });
