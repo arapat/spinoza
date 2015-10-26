@@ -29,5 +29,8 @@ module.exports = {
   'Parameters': {
     RESULT_TYPE_RECENT: "recent",
     RESULT_TYPE_POPULAR: "popular"
+  },
+  'Numbers': {
+    'DEFAULT_TWEETS_COUNT': 20
   }
 };

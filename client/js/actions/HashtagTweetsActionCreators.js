@@ -2,23 +2,34 @@
 
 var AppDispatcher = require('../dispatcher/AppDispatcher.js');
 
-var ActionTypes = require('../constants/Constants.js').ActionTypes;
+var Constants = require('../constants/Constants.js');
+var ActionTypes = Constants.ActionTypes;
+
+var apiURL = Constants.URLs.API_URL;
 
 /*
 Attributes of data may be hashtag, result_type, count and/or max_id.
 Please read https://dev.twitter.com/rest/reference/get/search/tweets
 for details.
 */
+
 function search (data, onSuccess, onError) {
+  var hashtag = data.hashtag;
+  var resultType = data.resultType;
+  var count = data.count;
+  var maxId = data.maxId;
+  if (hashtag[0] == '#') {
+    hashtag = hashtag.slice(1);
+  }
+
+  var url = apiURL + "/tweets/hashtag/" + hashtag + "/" + resultType + "/" + count;
+  if (maxId) {
+    url = url + "/" + maxId;
+  }
   $.ajax({
-    url: "hashtag/tweets/q/" + data.hashtag,
+    url: url,
     dataType: "json",
     type: 'GET',
-    data: {
-      result_type: data.resultType,
-      count: data.count,
-      max_id: data.max_id
-    },
     success: onSuccess,
     error: onError
   });

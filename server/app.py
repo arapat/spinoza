@@ -28,7 +28,6 @@ def saveDefHashtag(hashtag, defn):
   })
   response.raise_for_status()
 
-
 def getDef(hashtag):
   obj = client.get(tableDef, hashtag)
   try:
